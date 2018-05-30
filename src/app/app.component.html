@@ -1,10 +1,10 @@
-<main class="main-container">
-  <div class="second-container">
-    <div class="side-bar-wrapper">
+<main class="main-container container-fluid">
+  <div class="second-container row d-flex flex-nowrap">
+    <div class="side-bar-wrapper col-md-3 p-0">
       <ba-sidebar class="side-bar"></ba-sidebar>
     </div>
 
-    <div class="al-main">
+    <div class="al-main col-md-9 ml-sm-auto">
       <router-outlet (deactivate)="onDeactivate()"></router-outlet>
     </div>
   </div>

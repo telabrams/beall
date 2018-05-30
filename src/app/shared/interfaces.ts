@@ -7,7 +7,7 @@ export interface ISite {
 export interface ILocation extends ISite {
   floor: string
   assetCode: string
-  assetName: string
+  assetNumber: string
 }
 
 export interface ISiteServer {
@@ -19,7 +19,7 @@ export interface ISiteServer {
 export interface ILocationServer extends ISiteServer {
   floor: string
   asset_code: string
-  asset_name: string
+  asset_number: string
 }
 
 

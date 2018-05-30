@@ -15,8 +15,6 @@ a {
   background-color: $sideBarBgColor;
   position: fixed;
   height: 100vh;
-  width: 200px;
-  box-shadow: 0 0 7px 0 rgba(107, 107, 107, 0.61);
   margin-right: 5px;
   z-index: 1000;
 
@@ -87,4 +85,33 @@ nav.navbar-default {
 
 .active {
   border-left: 6px solid $blue !important;
+}
+
+.fa-bars {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+}
+
+// Media styles: Mobile
+@media screen and (max-width: 767px) {
+  .mobile {
+    display: none !important;
+  }
+  .sidebar {
+    width: 100%;
+    background-color: $blue;
+    position: relative;
+    height: auto;
+    margin-right: 0;
+    .nav-container {
+      height: auto;
+    }
+  }
+  nav li a {
+    color: #FFFFFF;
+  }
+
+  .active {
+    border-left: 6px solid #000 !important;
+  }
 }

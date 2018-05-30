@@ -1,9 +1,8 @@
-import {Injectable} from '@angular/core';
-import 'rxjs/add/operator/toPromise';
+import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import {HttpClient} from "@angular/common/http";
-import {BACKEND_URL, BASE_URL} from "../../shared/constants/backend";
-import {memberServer} from "../member.interface";
+import { HttpClient } from "@angular/common/http";
+import { BACKEND_URL, BASE_URL } from "../../shared/constants/backend";
+import { memberServer } from "../member.interface";
 
 
 @Injectable()

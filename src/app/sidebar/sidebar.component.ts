@@ -1,11 +1,11 @@
-import {Component, DoCheck} from "@angular/core";
-import {select} from "@angular-redux/store";
-import {Observable} from "rxjs";
-import {Router} from "@angular/router";
-import {Subject} from "rxjs/Rx";
-import {NAV_CONST} from "../shared/constants/navigation";
-import {IUser} from "../user/user.interface";
-import {IUserStore} from "../user/redux/user.reducer";
+import { Component, DoCheck } from "@angular/core";
+import { select } from "@angular-redux/store";
+import { Observable } from "rxjs";
+import { Router } from "@angular/router";
+import { Subject } from "rxjs/Rx";
+import { NAV_CONST } from "../shared/constants/navigation";
+import { IUser } from "../user/user.interface";
+import { IUserStore } from "../user/redux/user.reducer";
 
 @Component({
   selector: 'ba-sidebar',
@@ -17,6 +17,7 @@ export class SidebarComponent implements DoCheck {
   private user: IUser;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
+  mobileMenuActive: boolean = true;
   public profileUrl: string;
   public companyUrl: string;
   public directoryUrl: string;
@@ -26,7 +27,7 @@ export class SidebarComponent implements DoCheck {
 
   constructor(private router: Router) {
     // Set sidebar urls
-    this.directoryUrl = `/${NAV_CONST.directory}`;
+    this.directoryUrl = `/${NAV_CONST.directoryMembers}/10/1`;
   }
 
   ngOnInit() {
@@ -68,6 +69,10 @@ export class SidebarComponent implements DoCheck {
           break;
       }
     }
+  }
+
+  mobileMenuToggle() {
+    this.mobileMenuActive = !this.mobileMenuActive;
   }
 
   private setDirectoryActive() {

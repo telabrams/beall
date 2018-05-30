@@ -1,0 +1,95 @@
+@import "../../../variables";
+
+.main-wrapper {
+  .directory-top-panel {
+      .directory-top-panel-search {
+        width: 100%;
+        padding: .5rem;
+        border-radius: 3rem !important;
+        border: 1px solid $gray-ba;
+        text-indent: 1rem;
+        background-color: transparent;
+      }
+    }
+  .place-holder-profile {
+      width: 100%
+    }
+  .members-list {
+      .ba-box {
+        margin-top: 0;
+      }
+      .member {
+        .avatar {
+          align-self: top;
+          flex: 80px 0 0;
+          .profile-picture {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            object-fit: cover;
+          }
+        }
+        .member-info {
+          margin-left: 20px;
+          h3 {
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+            color: $blue;
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 1px;
+            a {
+              color: inherit;
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
+          p {
+            display: flex;
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+            font-size: 13px;
+            line-height: 20px;
+            margin-bottom: 5px;
+            img {
+              align-self: center;
+              width: 18px;
+              height: 18px;
+              margin-right: 10px;
+            }
+          }
+
+          .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+
+            .skill {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: $skillBg;
+              color: $nameColor;
+              padding: 0 25px;
+              height: 25px;
+              font-size: 12px;
+              line-height: 50px;
+              border-radius: 25px;
+              margin: 10px 10px 10px 0;
+            }
+          }
+        }
+      }
+    }
+}
+
+// Media styles: Mobile
+@media screen and (max-width: 767px) {
+  .main-wrapper {
+    .directory-top-panel {
+      padding-bottom: 2rem;
+    }
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}

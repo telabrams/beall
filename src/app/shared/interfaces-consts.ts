@@ -1,4 +1,4 @@
-import {ILocation, ILocationServer, ISite, ISiteServer} from "./interfaces";
+import { ILocation, ILocationServer, ISite, ISiteServer } from "./interfaces";
 
 export const siteInit: ISite = {
   countryCode: '',
@@ -18,5 +18,5 @@ export const locationServer = (record: ILocationServer): ILocation => ({
   siteCode: record.site_code,
   floor: record.floor,
   assetCode: record.asset_code,
-  assetName: record.asset_name,
+  assetNumber: record.asset_number,
 });
