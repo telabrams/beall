@@ -1,7 +1,8 @@
 <div class="sidebar">
   <div class="nav-container">
-    <div class="sub-menu">
-      <div>
+    <i class="fa fa-bars ml-3" (click)="mobileMenuToggle()"></i>
+    <div class="sub-menu" [ngClass]="{'mobile': mobileMenuActive}">
+      <div class="w-100">
         <nav class="navbar navbar-default" role="navigation">
           <ul class="nav navbar-nav">
             <li [ngClass]="{'active': directoryActive}">

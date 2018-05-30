@@ -1,15 +1,15 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {select} from "@angular-redux/store";
-import {Observable} from "rxjs/Observable";
-import {IUser} from "../user/user.interface";
-import {Subject} from "rxjs/Subject";
-import {memberStoreInit} from "./redux/member.reducer";
-import {ActivatedRoute} from "@angular/router";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {MemberActions} from "./redux/member.actions";
-import {IMember} from "./member.interface";
-import {NAV_CONST} from "../shared/constants/navigation";
-import {IUserStore} from "../user/redux/user.reducer";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { select } from "@angular-redux/store";
+import { Observable } from "rxjs/Observable";
+import { IUser } from "../user/user.interface";
+import { Subject } from "rxjs/Subject";
+import { memberStoreInit } from "./redux/member.reducer";
+import { ActivatedRoute } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { MemberActions } from "./redux/member.actions";
+import { IMember } from "./member.interface";
+import { NAV_CONST } from "../shared/constants/navigation";
+import { IUserStore } from "../user/redux/user.reducer";
 
 @Component({
   selector: 'app-member',
@@ -33,8 +33,8 @@ export class MemberComponent implements OnInit, OnDestroy {
   public user: IUser;
 
   constructor(private route: ActivatedRoute,
-              private modalService: NgbModal,
-              private memberActions: MemberActions) {
+    private modalService: NgbModal,
+    private memberActions: MemberActions) {
   }
 
   ngOnInit() {
@@ -70,7 +70,7 @@ export class MemberComponent implements OnInit, OnDestroy {
 
   saveTitle() {
     if (this.member.title !== this.tempMember.title) {
-      let member = Object.assign({}, {title: this.member.title});
+      let member = Object.assign({}, { title: this.member.title });
       this.tempMember = Object.assign({}, this.member);
       this.memberActions.saveProfile(this.profileId, member);
     }
@@ -88,7 +88,7 @@ export class MemberComponent implements OnInit, OnDestroy {
 
   saveAboutMe() {
     if (this.member.aboutMe !== this.tempMember.aboutMe) {
-      this.memberActions.saveProfile(this.profileId, {about_me: this.member.aboutMe});
+      this.memberActions.saveProfile(this.profileId, { about_me: this.member.aboutMe });
       this.tempMember = Object.assign({}, this.member);
     }
     this.isEditingAboutMe = false;

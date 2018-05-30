@@ -1,0 +1,84 @@
+<div class="main-wrapper">
+  <div class="directory-top-panel container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-select placeholder="Type" [(value)]="listType">
+            <mat-option [routerLink]="directoryMembersUrl">
+              Members
+            </mat-option>
+            <mat-option [routerLink]="directoryCompaniesUrl">
+              Companies
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <input class="directory-top-panel-search" #input (keyup.enter)="onEnter(input.value)" placeholder="Search members">
+      </div>
+    </div>
+  </div>
+
+  <!--Set 10 placeholders while pending-->
+  <div class="place-holder-profile" *ngIf="pending$ | async">
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+    <ba-post-place-holder></ba-post-place-holder>
+  </div>
+
+  <!--container for data after load-->
+  <div class="members-list" *ngIf="!(pending$ | async)">
+    <div class="ba-box member" *ngFor="let member of directoryMembers?.results | filter:searchText">
+      <!--Profile picture-->
+      <div class="avatar">
+        <!--user profile image-->
+        <img *ngIf="member?.profilePictureUrl" [src]="member?.profilePictureUrl" alt="profile picture" class="profile-picture" onerror="this.src = 'assets/images/person_ph.svg'">
+
+        <!--default image-->
+        <img class="profile-profilePictureUrl" *ngIf="!member?.profilePictureUrl" src="assets/images/person_ph.svg">
+      </div>
+
+      <div class="member-info" (click)="redirectToMember(member?.id)">
+        <!--Name-->
+        <h3>{{member?.fullName}}</h3>
+
+        <!--Title-->
+        <p>{{member?.title}}</p>
+
+        <!--Company-->
+        <p class="company" (click)="redirectToCompany(member?.company.id)">
+          <img src="assets/images/workplace.svg" alt="">
+          <span>{{member?.company.name}}</span>
+        </p>
+
+        <!--Location-->
+        <p class="location">
+          <img src="assets/images/location-icon.svg" alt="">
+          <span>BE ALL&nbsp;{{"sites." + member?.location?.siteCode | translate}}, {{"cities." + member?.location?.cityCode | translate}}</span>
+        </p>
+
+        <!--Skills-->
+        <div>
+          <span class="skills-container">
+          <span *ngFor="let skill of member?.skills; let i=index">
+            <span class="skill" *ngIf="i < 4">{{skill.name}}</span>
+          </span>
+          <span class="skill" *ngIf="member?.skills.length > 4">{{member?.skills.length - 4}} more</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="paginations d-flex w-100 justify-content-center align-items-center" *ngIf="!(pending$ | async)">
+    <button mat-button (click)='prevPage()'>Prev Page</button>
+    <div class="current-page mx-3">{{this.page}}</div>
+    <button mat-button (click)='nextPage()'>Next Page</button>
+  </div>
+</div>

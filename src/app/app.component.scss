@@ -15,28 +15,35 @@ body {
   line-height: 20px;
 }
 
+app-directory-members {
+  width: 100%;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
   .second-container {
-    display: flex;
-
     .side-bar-wrapper {
-      flex: 0 0 200px;
-
-      .side-bar {
-        height: 100%;
-        justify-content: flex-start;
-      }
+      box-shadow: 0 0 7px 0 rgba(107, 107, 107, 0.61);
     }
 
     .al-main {
-      display: flex;
-      flex: 1;
-      padding: 7vh 0 10px 0;
+      padding: 7vh 1rem 10px;
       min-height: 100vh;
       position: relative;
       background-color: $main-bgc;
+    }
+  }
+}
+
+// Media styles: Mobile
+@media screen and (max-width: 767px) {
+  .main-container {
+    .second-container {
+      flex-direction: column;
+      .al-main {
+        padding: 1rem 1rem 10px;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
-import {ISite, ISiteServer} from "../shared/interfaces";
-import {siteServer} from "../shared/interfaces-consts";
+import { ISite, ISiteServer } from "../shared/interfaces";
+import { siteServer } from "../shared/interfaces-consts";
 
 export interface ISkill {
   key: string
@@ -28,6 +28,7 @@ export interface IMember {
   location: ISite
 }
 
+// API interfaces
 interface IMemberInCompanyServer {
   id: number
   name: string
@@ -50,6 +51,7 @@ interface IMemberServer {
   primary_location: ISiteServer
 }
 
+// Convert API fields to our required format
 export const memberServer = (record: IMemberServer): IMember => ({
   id: record.id,
   company: memberInCompanyServer(record.company),
