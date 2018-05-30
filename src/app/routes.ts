@@ -5,7 +5,7 @@ import { DirectoryCompaniesComponent } from "./directory/companies/directory-com
 import { DirectoryMembersComponent } from "./directory/members/directory-members.component";
 
 export const appRoutes = [
-  { path: '', redirectTo: NAV_CONST.directory, pathMatch: 'full' },
+  { path: '', redirectTo: `${NAV_CONST.member}/1`, pathMatch: 'full' },
   { path: 'member/:id', component: MemberComponent },
   { path: 'company/:id', component: CompanyComponent },
   {
@@ -14,5 +14,5 @@ export const appRoutes = [
       { path: 'members/:page_size/:page', component: DirectoryMembersComponent },
     ]
   },
-  { path: '**', redirectTo: NAV_CONST.directory }
+  { path: '**', redirectTo: `${NAV_CONST.member}/1` }
 ];
